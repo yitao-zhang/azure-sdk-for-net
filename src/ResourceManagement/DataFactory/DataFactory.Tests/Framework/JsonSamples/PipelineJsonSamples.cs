@@ -1237,110 +1237,6 @@ namespace DataFactory.Tests.Framework.JsonSamples
 }
 ";
 
-        [JsonSample]
-        public const string PipelineWithDataSet = @"
-{
-    name: ""Pipeline With Dataset"",
-    properties: 
-    {
-        description : ""Copy from SQL to Blob"",
-        hubName: ""MyHDIHub"",
-        activities:
-        [
-            {
-                type: ""Copy"",
-                name: ""TestActivity"",
-                description: ""Test activity description"", 
-                typeProperties:
-                {
-                    source:
-                    {
-                        type: ""SqlSource"",
-                        sourceRetryCount: ""2"",
-                        sourceRetryWait: ""00:00:01"",
-                        sqlReaderQuery: ""$EncryptedString$MyEncryptedQuery""
-                    },
-                    sink:
-                    {
-                        type: ""BlobSink"",
-                        blobWriterAddHeader: true,
-                        writeBatchSize: 1000000,
-                        writeBatchTimeout: ""01:00:00""
-                    },
-                },
-                inputs: 
-                [ 
-                    {
-                        name: ""InputSqlDA""
-                    }
-                ],
-                outputs: 
-                [ 
-                    {
-                        name: ""OutputSqlDA""
-                    }
-                ],
-                linkedServiceName: ""MyLinkedServiceName"",
-                policy:
-                {
-                    concurrency: 3,
-                    executionPriorityOrder: ""NewestFirst"",
-                    retry: 3,
-                    timeout: ""00:00:05"",
-                    delay: ""00:00:01""
-                },
-                scheduler:
-                {
-                    offset: ""01:00:00"",
-                    interval: 1,
-                    anchorDateTime: ""2014-02-27T12:00:00"",
-                    frequency: ""Hour""
-                }
-            }
-        ],
-        ""datasets"":[
-            {
-                name: ""InputSqlDA"",
-                properties:
-                {
-                    type: ""SqlServerTable"",
-                    linkedServiceName: ""MyLinkedServiceName"",
-                    typeProperties:
-                    {            
-                        tableName: ""$EncryptedString$MyEncryptedTableName""            
-                    },
-                    availability:
-                    {
-                        offset: ""01:00:00"",
-                        interval: 1,
-                        anchorDateTime: ""2014-02-27T12:00:00"",
-                        frequency: ""Hour""
-                    }
-                }
-            },
-            {
-                name: ""OutputSqlDA"",
-                properties:
-                {
-                    type: ""SqlServerTable"",
-                    linkedServiceName: ""MyLinkedServiceName"",
-                    typeProperties:
-                    {            
-                        tableName: ""$EncryptedString$MyEncryptedTableName""            
-                    },
-                    availability:
-                    {
-                        offset: ""01:00:00"",
-                        interval: 1,
-                        anchorDateTime: ""2014-02-27T12:00:00"",
-                        frequency: ""Hour""
-                    }
-                }
-            },
-        ]
-    }
-}";
-
         public const string WebTableCopyActivityPipeline = @"
 {
     name: ""MyPipelineName"",
@@ -1375,6 +1271,30 @@ namespace DataFactory.Tests.Framework.JsonSamples
                     retry: 2,
                     timeout: ""01:00:00""
                 }
+                        type: ""BlobSource"",
+                    },
+                     sink:
+                    {
+                        type: ""AzureDataLakeStoreSink"",
+                        writeBatchSize: 1000000,
+                        writeBatchTimeout: ""01:00:00"",
+                    },
+                    ""maxConcurrentSessions"": 5,
+                    ""maxCloudDataMovementUnits"": 4
+                },
+                inputs:
+                [ 
+                    {
+                        name: ""RawBlob""
+                    }
+                ],
+                outputs:
+                [ 
+                    {
+                        name: ""AdlOut""
+                    }
+                ],
+                linkedServiceName: ""MyLinkedServiceName""
             }
         ]
     }
