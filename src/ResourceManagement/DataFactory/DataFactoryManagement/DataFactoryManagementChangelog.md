@@ -8,6 +8,8 @@ _Release date:_
     * ODataLinkedService
 * The following dataset types have been added: 
     * ODataResourceDataset
+* Add AllowPolyBase and PolyBaseSettings properties to SqlDWSink.
+    * Enables the use of PolyBase to copy data into SQL Data Warehouse.
 
 ## Version 4.4.0
 Release date: 2016.01.28
