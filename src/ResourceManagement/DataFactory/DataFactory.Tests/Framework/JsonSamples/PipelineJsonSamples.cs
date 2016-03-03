@@ -315,6 +315,13 @@ namespace DataFactory.Tests.Framework.JsonSamples
                         sqlWriterCleanupScript: ""Script"",
                         sliceIdentifierColumnName: ""SliceID""
                     },
+                    enableStaging: true,
+                    stagingSettings: 
+                    {
+                        linkedServiceName: ""MyStagingBlob"",
+                        path: ""stagingcontainer/path"",
+                        enableCompression: true
+                    }
                 },
                 inputs: 
                 [ 
