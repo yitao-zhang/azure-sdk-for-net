@@ -1120,7 +1120,9 @@ namespace DataFactory.Tests.Framework.JsonSamples
                         writeBatchSize: 1000000,
                         writeBatchTimeout: ""01:00:00"",
                         copyBehavior: ""FlattenHierarchy""
-                    }
+                    },
+                    cloudUnits: 8,
+                    parallelCopies: 10
                 },
                 inputs: 
                 [ 

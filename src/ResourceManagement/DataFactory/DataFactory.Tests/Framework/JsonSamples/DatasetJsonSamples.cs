@@ -479,6 +479,26 @@ namespace DataFactory.Tests.Framework.JsonSamples
 ";
 
         [JsonSample]
+        public const string ODataResourceDataset = @"
+{
+    name: ""ODataResourceDataset"",
+    properties:
+    {
+        type: ""ODataResource"",
+        linkedServiceName: ""MyLinkedServiceName"",
+        typeProperties:
+        {            
+            path: ""path""
+        },
+        availability:
+        {
+            interval: 1,
+            frequency: ""Hour""
+        }
+    }
+}";
+
+        [JsonSample]
         public const string WebTableDataset = @"
 {
     name: ""WebTable"",
@@ -506,25 +526,5 @@ namespace DataFactory.Tests.Framework.JsonSamples
     }
 }
 ";
-
-        [JsonSample]
-        public const string ODataResourceDataset = @"
-{
-    name: ""ODataResourceDataset"",
-    properties:
-    {
-        type: ""ODataResource"",
-        linkedServiceName: ""MyLinkedServiceName"",
-        typeProperties:
-        {            
-            path: ""path""
-        },
-        availability:
-        {
-            interval: 1,
-            frequency: ""Hour""
-        }
-    }
-}";
     }
 }
