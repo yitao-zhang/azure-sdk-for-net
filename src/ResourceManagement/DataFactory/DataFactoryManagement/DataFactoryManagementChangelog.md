@@ -10,8 +10,7 @@ _Release date: _
 ## Version 4.6.0
 _Release date: 2016.03.28_ 
 =======
-_Release date: 2016.03.22_ 
-=======
+
 ## Version 4.5.0
 _Release date: 2016.02.24_
 =======
@@ -38,6 +37,16 @@ Release date:
 ### Bug Fixes
 
 * Fixes a bug where parameters for listing activity windows were not being sent in HTTP requests.
+=======
+## Version _
+_Release date: _
+
+
+### Feature Additions
+
+* The following optional properties have been added to CopyActivity to to enable tuning of copy performance: 
+    * ParallelCopies
+    * CloudDataMovementUnits
 
 ## Version 4.5.0
 _Release date: 2016.02.24_
