@@ -5,7 +5,11 @@
     Microsoft.Azure.Management.DataFactories
     -->
     <SdkNuGetPackage Include="Microsoft.Azure.Management.DataFactories">
+<<<<<<< HEAD
       <PackageVersion>4.6.0-rc10</PackageVersion>
+=======
+      <PackageVersion>4.6.1</PackageVersion>
+>>>>>>> 109b8e0... Fix list activity windows request payload. it should not contain DFName
       <Folder>$(MSBuildThisFileDirectory)</Folder>
     </SdkNuGetPackage>
   </ItemGroup>
