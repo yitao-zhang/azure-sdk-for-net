@@ -7,8 +7,15 @@ _Release date:_
 
 * Add OracleSink properties: "SqlWriterCleanupScript" and "SliceIdentifierColumnName"
 
+## Version 4.6.1
+_Release date: 2016.04.26_
+
+### Bug Fixes
+* Fixes HTTP request for listing activity windows.
+    * Removes the resource group name and the data factory name from the request payload.
+
 ## Version 4.6.0
-_Release date: 2016.03.28_ 
+_Release date: 2016.04.14_ 
 
 ### Feature Additions
 
