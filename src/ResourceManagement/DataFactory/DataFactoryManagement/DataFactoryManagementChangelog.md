@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 ﻿For additional details on features, see the full [Azure Data Factory Release Notes](https://azure.microsoft.com/en-us/documentation/articles/data-factory-release-notes). 
+
+## Version 
+_Release date:  
+
+### Feature Additions
+
+* Added new StorageFormat type OrcFormat type to copy files in ORC format.
+
+### Bug Fixes
+* Fixes HTTP request for listing activity windows.
+	* Removes the resource group name and the data factory name from the request payload.
 
 ## Version
 _Release date:_ 
@@ -214,3 +226,4 @@ _Release date: 2015.07.10_
 * Add IDotNetActivity interface for implementing a custom C# activity.
 * Add CopyBehavior property for BlobSink. 
 * Add FileSystemSink for data output to on-premises file shares. 
+>>>>>>> 109b8e0... Fix list activity windows request payload. it should not contain DFName
