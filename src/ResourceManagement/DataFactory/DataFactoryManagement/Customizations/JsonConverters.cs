@@ -570,7 +570,8 @@ namespace Microsoft.Azure.Management.DataFactories.Core
             return type == typeof(AzureMLBatchExecutionActivity) ||
                    type == typeof(AzureMLBatchScoringActivity) ||
                    type == typeof(AzureMLUpdateResourceActivity) ||
-                   type == typeof(DataLakeAnalyticsUSQLActivity);
+                   type == typeof(DataLakeAnalyticsUSQLActivity) ||
+                   type == typeof(SqlServerStoredProcedureActivity);
         }
         #endregion JSON deserialization
     }
