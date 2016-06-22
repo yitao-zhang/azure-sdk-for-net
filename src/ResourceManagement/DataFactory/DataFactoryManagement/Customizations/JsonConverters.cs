@@ -265,6 +265,8 @@ namespace Microsoft.Azure.Management.DataFactories.Core
             string fakeSubscriptionId = Guid.NewGuid().ToString("D");
             string fakePassword = "fakepassword";
             var baseUri = new Uri("https://localhost");
+            
+            TypeProperties.IsDefaultDateParseHandlingBehaviorRequired = IsDefaultDateParseHandlingBehaviorRequired;
 
             return new DataFactoryManagementClient(
                     new TokenCloudCredentials(fakeSubscriptionId, fakePassword),
@@ -563,6 +565,14 @@ namespace Microsoft.Azure.Management.DataFactories.Core
             return getResponse.ComputeType;
         }
 
+        private static bool IsDefaultDateParseHandlingBehaviorRequired(Type type)
+        {
+            return type == typeof(AzureMLBatchExecutionActivity) ||
+                   type == typeof(AzureMLBatchScoringActivity) ||
+                   type == typeof(AzureMLUpdateResourceActivity) ||
+                   type == typeof(DataLakeAnalyticsUSQLActivity) ||
+                   type == typeof(SqlServerStoredProcedureActivity);
+        }
         #endregion JSON deserialization
     }
 }
